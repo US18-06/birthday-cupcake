@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Lovie</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">🎉 Happy Birthday Lovie 💖</h1>
+
+    <div class="cake">
+      <div class="plate"></div>
+      <div class="layer layer-bottom"></div>
+      <div class="layer layer-middle"></div>
+      <div class="layer layer-top"></div>
+      <div class="candles">
+        <div class="candle" id="candle1">
+          <div class="flame" id="flame1"></div>
+        </div>
+        <div class="candle" id="candle2">
+          <div class="flame" id="flame2"></div>
+        </div>
+        <div class="candle" id="candle3">
+          <div class="flame" id="flame3"></div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="separator" />
+
+    <p class="birthday-message">Wishing you a magical day filled with love, light, and happiness! 🎂✨</p>
+  </div>
+
+  <!-- 🎶 Background Music -->
+  <audio id="bg-music" loop>
+    <source src="ss.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    // Function to start music and make candle flicker
+    function startMusicAndFlicker(candleId, flameId) {
+      const audio = document.getElementById('bg-music');
+      const candle = document.getElementById(candleId);
+      const flame = document.getElementById(flameId);
+
+      // Start playing the music
+      audio.play();
+
+      // Start flickering the candle flame
+      flame.classList.add('flicker');
+
+      // Disable further clicks on the candle
+      candle.style.pointerEvents = 'none';
+    }
+
+    // Add event listeners for each candle
+    document.getElementById('candle1').addEventListener('click', () => {
+      startMusicAndFlicker('candle1', 'flame1');
+    });
+    document.getElementById('candle2').addEventListener('click', () => {
+      startMusicAndFlicker('candle2', 'flame2');
+    });
+    document.getElementById('candle3').addEventListener('click', () => {
+      startMusicAndFlicker('candle3', 'flame3');
+    });
+  </script>
+</body>
+</html>
