@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Lovie</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">🎉 Happy Birthday Lovie 💖</h1>
+
+    <div class="cake">
+      <div class="plate"></div>
+      <div class="layer layer-bottom"></div>
+      <div class="layer layer-middle"></div>
+      <div class="layer layer-top"></div>
+      <div class="candles">
+        <div class="candle"><div class="flame"></div></div>
+        <div class="candle"><div class="flame"></div></div>
+        <div class="candle"><div class="flame"></div></div>
+      </div>
+    </div>
+
+    <hr class="separator" />
+
+    <p class="birthday-message">Wishing you a magical day filled with love, light, and happiness! 🎂✨</p>
+  </div>
+
+  <!-- 🎶 Background Music -->
+  <audio id="bg-music" autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-buddy.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- 🎉 Confetti + Candles -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script>
+    // Confetti blast on load
+    window.addEventListener('load', () => {
+      confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
+
+      // Candle click = blow out
+      document.querySelectorAll('.flame').forEach(flame => {
+        flame.addEventListener('click', () => {
+          flame.style.display = 'none';
+          confetti({ particleCount: 50, spread: 40, origin: { y: 0.4 } });
+        });
+      });
+
+      // Music fade
+      const music = document.getElementById("bg-music");
+      music.volume = 0.3;
+    });
+  </script>
+</body>
+</html>
